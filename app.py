@@ -1,13 +1,8 @@
 import streamlit as st
+import pandas as pd
+
+df = pd.read_excel("budget.xlsx")
 
 st.title("Budget Dashboard")
 
-budget = 100000000
-actual = 65000000
-
-st.metric(
-    "Remaining Budget",
-    f"Rp {budget-actual:,.0f}"
-)
-
-st.progress(actual/budget)
+st.dataframe(df)
